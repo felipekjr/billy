@@ -1,6 +1,13 @@
-![billy](https://user-images.githubusercontent.com/20143893/163482536-dad0e97f-5bf1-476d-aa56-335191ad036f.png)
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/20143893/163482536-dad0e97f-5bf1-476d-aa56-335191ad036f.png" alt="Billy Icon" width="200">
+  <br>
+  <br>
+  <span>[In progress...] An app to organize your bills</span>
+  <br>
+  <br>
+</div>
 
-[In progress...] An app to organize your bills
+## Summary
  - [Stack](#stack)
  - [Architecture](#architecture)
  - [To-do](#to-do)
