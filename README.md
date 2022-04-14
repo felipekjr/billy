@@ -22,7 +22,7 @@
 - Dio / Firebase
 - Secure Storage
 
-## [Architecture](#sft)
+## [Architecture]
  - Clean Arc
  - Micro-apps approach
  - SOLID, DRY
