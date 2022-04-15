@@ -1,0 +1,1 @@
+export 'colors_palette.dart';
