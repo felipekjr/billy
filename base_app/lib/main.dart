@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 import 'package:micro_app_login/micro_app_login.dart';
 import 'package:micro_commons_design_system/micro_commons_design_system.dart';
@@ -23,9 +24,7 @@ class Podfy extends StatelessWidget with BaseApp {
 
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: CustomTheme.data,
       navigatorKey: navigatorKey,
       onGenerateRoute: super.generateRoute,
       initialRoute: '/',

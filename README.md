@@ -8,6 +8,7 @@
 </div>
 
 ## Summary
+ - [Run](#run)
  - [Stack](#stack)
  - [Architecture](#architecture)
  - [To-do](#to-do)
@@ -15,12 +16,15 @@
 ## Preview
 ![image](https://user-images.githubusercontent.com/20143893/163483641-fe36a333-61d1-41da-a166-4edd94e2720f.png)
 
+## Run
+execute the command ```sh flutter run``` on root folder to run the app
 ## Stack
 - Dart + Flutter
 - Riverpod / ValueNotifier
 - Flutter Hooks
 - Dio / Firebase
 - Secure Storage
+- Google Calendar API
 
 ## Architecture
  - Clean Arc

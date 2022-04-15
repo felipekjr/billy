@@ -17,12 +17,8 @@ if [[ $input == "Y" || $input == "y" ]]; then
 fi
 
 # starting build project
-echo "Starting build? [Y,n]"
-read -r input
+echo "Starting build..."
+cd base_app
+flutter run
+cd -
 
-if [[ $input == "Y" || $input == "y" ]]; then
-  echo "Starting build..."
-  cd base_app
-  flutter run
-  cd -
-fi

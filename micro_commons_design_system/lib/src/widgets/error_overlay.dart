@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../layout/layout.dart';
+import '../theme/theme.dart';
 
 class ErrorOverlay extends StatelessWidget {
   final FlutterErrorDetails details;
