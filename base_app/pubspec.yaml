@@ -11,12 +11,15 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
+  flutter_native_splash: ^2.1.5
+
   micro_core:
     path: ../micro_core
   micro_commons_design_system:
     path: ../micro_commons_design_system
   micro_app_login:
     path: ../micro_app_login
+
 
 dev_dependencies:
   flutter_test:
@@ -26,8 +29,14 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  fonts:
+  - family: Gotham
+    fonts:
+      - asset: assets/fonts/GothamBold.ttf
+      - asset: assets/fonts/GothamMedium.ttf
+      - asset: assets/fonts/GothamLight.ttf  
 
+flutter_native_splash:
+  color: "#282A36"
+  image: ./assets/images/billy.png
 
-
-
-  #
