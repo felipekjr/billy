@@ -16,6 +16,13 @@ class TextStyles {
     fontFamily: 'Gotham',
   );
 
+  static TextStyle medium({Color? color}) => TextStyle(
+    fontSize: 16.0,
+    color: color ?? ColorsPalette.foreground,
+    fontWeight: FontWeight.w500,
+    fontFamily: 'Gotham',
+  );
+  
   static TextStyle header = TextStyle(
     fontSize: 16.0,
     color: ColorsPalette.foreground,
