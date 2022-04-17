@@ -1,25 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:micro_commons_design_system/micro_commons_design_system.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({ Key? key }) : super(key: key);
+class RegisterUserPage extends StatefulWidget {
+  const RegisterUserPage({ Key? key }) : super(key: key);
 
   @override
-  _LoginPageState createState() => _LoginPageState();
+  State<RegisterUserPage> createState() => _RegisterUserPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
-
-  @override
-  void initState() {
-    super.initState();
-  }
-  
+class _RegisterUserPageState extends State<RegisterUserPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CustomAppBar(
-        title: 'Login',
+        title: 'Cadastro',
       ),
       body: Column(
         children: [

@@ -14,11 +14,9 @@ dependencies:
   micro_commons_deps:
     path: ../micro_commons_deps
 
+flutter:
+
 dev_dependencies:
   flutter_test:         
     sdk: flutter
   flutter_lints: ^1.0.0
-
-flutter:
-  assets:
-    - assets/images/billy.svg

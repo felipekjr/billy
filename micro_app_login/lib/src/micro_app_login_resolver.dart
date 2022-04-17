@@ -6,11 +6,11 @@ import 'ui/login_page.dart';
 
 class MicroAppLoginResolver implements MicroApp {
   @override
-  String get name => 'micro-app-login';
+  String get name => 'login';
 
   @override
   Map<String, WidgetBuilderArgs> get routes => {
-    '/': (context, args) => const LoginPage()
+    '/$name': (context, args) => const LoginPage()
   };
 
 }

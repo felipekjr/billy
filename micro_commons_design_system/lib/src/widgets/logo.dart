@@ -1,15 +1,23 @@
 import 'package:flutter/widgets.dart';
-import 'package:micro_commons_deps/micro_commons_deps.dart';
-
+import '../theme/theme.dart';
 class Logo extends StatelessWidget {
   const Logo({ Key? key }) : super(key: key);
 
+  Shader _createShader(bounds) {
+    return ColorsPalette.logoGradient.createShader(bounds);
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: SvgPicture.asset(
-        'assets/images/billy.svg',
-        semanticsLabel: 'Billy Logo'
+    return ShaderMask(
+      shaderCallback: _createShader,
+      child: Text(
+        'billy',
+        style: TextStyle(
+          fontFamily: 'Allrox',
+          fontSize: 32,
+          color: ColorsPalette.foreground
+        )
       ),
     );
   }

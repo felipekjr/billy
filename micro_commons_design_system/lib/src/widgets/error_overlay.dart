@@ -17,10 +17,11 @@ class ErrorOverlay extends StatelessWidget {
             children: [
               Text(
                 details.exception.toString(),
+                textAlign: TextAlign.center,
                 style: const TextStyle(
-                  fontSize: 24,
+                  fontSize: 12,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white
+                  color: Colors.white,
                 ),
               )
           ])

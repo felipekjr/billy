@@ -19,7 +19,8 @@ dependencies:
     path: ../micro_commons_design_system
   micro_app_login:
     path: ../micro_app_login
-
+  micro_app_onboarding:
+    path: ../micro_app_onboarding
 
 dev_dependencies:
   flutter_test:
@@ -29,13 +30,17 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
   fonts:
   - family: Gotham
     fonts:
       - asset: assets/fonts/GothamBold.ttf
       - asset: assets/fonts/GothamMedium.ttf
       - asset: assets/fonts/GothamLight.ttf  
-
+  - family: Allrox
+    fonts:
+      - asset: assets/fonts/Allrox.ttf  
+        
 flutter_native_splash:
   color: "#282A36"
   image: ./assets/images/billy.png

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 import 'package:micro_app_login/micro_app_login.dart';
+import 'package:micro_app_onboarding/micro_app_onboarding.dart';
 import 'package:micro_commons_design_system/micro_commons_design_system.dart';
 import 'package:micro_core/base_app.dart';
 import 'package:micro_core/micro_core_utils.dart';
@@ -11,23 +12,23 @@ void main() {
   ErrorWidget.builder = (FlutterErrorDetails details) {
     return ErrorOverlay(details: details);
   };
-  runApp(Podfy());
+  runApp(Billy());
 }
 
-class Podfy extends StatelessWidget with BaseApp {
+class Billy extends StatelessWidget with BaseApp {
 
-  Podfy({Key? key}) : super(key: key);
+  Billy({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     super.registerRoutes();
 
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Billy',
       theme: CustomTheme.data,
       navigatorKey: navigatorKey,
       onGenerateRoute: super.generateRoute,
-      initialRoute: '/',
+      initialRoute: '/onboarding',
     );
   }
 
@@ -36,6 +37,7 @@ class Podfy extends StatelessWidget with BaseApp {
 
   @override
   List<MicroApp> get microApps => [
+    MicroAppOnboardingResolver(),
     MicroAppLoginResolver()
   ];
 }

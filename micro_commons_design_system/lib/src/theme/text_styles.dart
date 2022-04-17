@@ -11,63 +11,58 @@ class TextStyles {
   );
 
   static TextStyle normal({Color? color}) => TextStyle(
-    fontSize: 12.0,
-    color: color ?? ColorsPalette.foreground,
-    fontWeight: FontWeight.w400,
-    fontFamily: 'Gotham',
-    height: 1.4
-  );
-
-  static TextStyle header = TextStyle(
     fontSize: 14.0,
-    color: ColorsPalette.foreground,
+    color: color ?? ColorsPalette.foreground,
     fontWeight: FontWeight.w500,
     fontFamily: 'Gotham',
     height: 1.4
   );
 
+  static TextStyle header = TextStyle(
+    fontSize: 16.0,
+    color: ColorsPalette.foreground,
+    fontWeight: FontWeight.w700,
+    fontFamily: 'Gotham',
+    height: 1.4
+  );
+
   static TextStyle normalThin({Color? color}) => TextStyle(
-    fontSize: 12.0,
+    fontSize: 14.0,
     color: color ?? ColorsPalette.foreground,
-    fontWeight: FontWeight.w200,
+    fontWeight: FontWeight.w300,
     fontFamily: 'Gotham',
     height: 1.4
   );
 
   static TextStyle smallThin({Color? color}) => TextStyle(
-    fontSize: 10.0,
+    fontSize: 12.0,
     color: color ?? ColorsPalette.foreground,
-    fontWeight: FontWeight.w200,
+    fontWeight: FontWeight.w300,
     fontFamily: 'Gotham',
     height: 1.4
   );
 
   static TextStyle smallBold({Color? color}) => TextStyle(
-    fontSize: 10.0,
+    fontSize: 12.0,
     color: color ?? ColorsPalette.foreground,
     fontWeight: FontWeight.bold,
     fontFamily: 'Gotham',
     height: 1.4
   );
 
-  static TextStyle buttonText(Color color) => TextStyle(
-    fontSize: 14.0,
-    color: color,
+  static TextStyle buttonText({Color? color}) => TextStyle(
+    fontSize: 16.0,
+    color: color ?? ColorsPalette.foreground,
     fontWeight: FontWeight.bold,
     fontFamily: 'Gotham',
     height: 1.4
   );
 
   static TextStyle sectionTitle({Color? color}) =>TextStyle(
-    fontSize: 12.0,
+    fontSize: 14.0,
     color: color ?? ColorsPalette.foreground,
     fontWeight: FontWeight.bold,
     fontFamily: 'Gotham',
     height: 1.4
   );
-
-  static TextStyle highlighted = TextStyle(
-    foreground: Paint()..shader = ColorsPalette.gradientShader
-  );
-
 }

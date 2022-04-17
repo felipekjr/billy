@@ -29,6 +29,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.0"
+  carousel_slider:
+    dependency: transitive
+    description:
+      name: carousel_slider
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.0.0"
   characters:
     dependency: transitive
     description:
@@ -160,6 +167,13 @@ packages:
     dependency: "direct main"
     description:
       path: "../micro_app_login"
+      relative: true
+    source: path
+    version: "0.0.1"
+  micro_app_onboarding:
+    dependency: "direct main"
+    description:
+      path: "../micro_app_onboarding"
       relative: true
     source: path
     version: "0.0.1"

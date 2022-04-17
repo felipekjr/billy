@@ -11,6 +11,13 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  carousel_slider: ^4.0.0
+  micro_core:
+    path: ../micro_core
+  micro_commons_design_system:
+    path: ../micro_commons_design_system
+  micro_commons_deps:
+    path: ../micro_commons_deps
 
 dev_dependencies:
   flutter_test:
@@ -18,3 +25,5 @@ dev_dependencies:
   flutter_lints: ^1.0.0
 
 flutter:
+  assets:
+    - assets/

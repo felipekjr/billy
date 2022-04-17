@@ -1,12 +1,23 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class ColorsPalette {
-  static Shader gradientShader = const LinearGradient(
+  static LinearGradient logoGradient = const LinearGradient(
+    begin: Alignment.centerLeft,
+    end: Alignment.centerRight,
+    colors: <Color>[
+      Color(0xff89FF85),
+      Color(0xff80FFE4), 
+    ],
+  );
+
+  static LinearGradient gradient = const LinearGradient(
+    begin: Alignment.centerLeft,
+    end: Alignment.centerRight,
     colors: <Color>[
       Color(0xff80FFE4), 
-      Color(0xff89FF85)
+      Color(0xff89FF85),
     ],
-  ).createShader(const Rect.fromLTWH(0.0, 0.0, 200.0, 70.0));
+  );
 
   static Color black = const Color(0xff282A36);
   static Color black2 = const Color(0xff333541);
