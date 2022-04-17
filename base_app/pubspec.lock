@@ -177,6 +177,13 @@ packages:
       relative: true
     source: path
     version: "0.0.1"
+  micro_app_settings:
+    dependency: "direct main"
+    description:
+      path: "../micro_app_settings"
+      relative: true
+    source: path
+    version: "0.0.1"
   micro_commons_deps:
     dependency: transitive
     description:

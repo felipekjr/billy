@@ -66,7 +66,7 @@ class TextStyles {
   );
 
   static TextStyle sectionTitle({Color? color}) =>TextStyle(
-    fontSize: 14.0,
+    fontSize: 15.0,
     color: color ?? ColorsPalette.foreground,
     fontWeight: FontWeight.bold,
     fontFamily: 'Gotham',

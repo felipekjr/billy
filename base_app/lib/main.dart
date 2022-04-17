@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 import 'package:micro_app_login/micro_app_login.dart';
 import 'package:micro_app_onboarding/micro_app_onboarding.dart';
+import 'package:micro_app_settings/micro_app_settings.dart';
 import 'package:micro_commons_design_system/micro_commons_design_system.dart';
 import 'package:micro_core/base_app.dart';
 import 'package:micro_core/micro_core_utils.dart';
@@ -38,6 +38,7 @@ class Billy extends StatelessWidget with BaseApp {
   @override
   List<MicroApp> get microApps => [
     MicroAppOnboardingResolver(),
-    MicroAppLoginResolver()
+    MicroAppLoginResolver(),
+    MicroAppSettingsResolver()
   ];
 }

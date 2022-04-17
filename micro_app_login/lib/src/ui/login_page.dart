@@ -42,7 +42,7 @@ class _LoginPageState extends State<LoginPage> {
                     title(),
                     const SizedBox(height: Spacing.x5),
                     form(),
-                    const SizedBox(height: Spacing.x3),
+                    const SizedBox(height: Spacing.x4),
                     forgotPassword()
                   ]
                 ),
@@ -97,7 +97,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget button() =>  PrimaryButton(
     title: 'Login',
     onTap: (){
-
+      Navigator.restorablePushNamed(context, '/settings');
     }
   );
 
