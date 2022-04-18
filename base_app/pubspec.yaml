@@ -21,6 +21,8 @@ dependencies:
     path: ../micro_app_login
   micro_app_onboarding:
     path: ../micro_app_onboarding
+  micro_app_bills:
+    path: ../micro_app_bills
   micro_app_settings:
     path: ../micro_app_settings
 

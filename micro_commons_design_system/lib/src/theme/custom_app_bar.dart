@@ -24,6 +24,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         icon: Icon(Icons.close, color: ColorsPalette.foreground),
         onPressed: () => Navigator.of(context).pop(),
       ), 
+      actions: action != null ? [
+        action!
+      ] : [],
       backgroundColor: ColorsPalette.black2,
       elevation: 0,
       title: Text(title, style: TextStyles.header),

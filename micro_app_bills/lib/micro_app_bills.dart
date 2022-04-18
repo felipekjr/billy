@@ -1,7 +1,3 @@
 library micro_app_bills;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+export './src/micro_app_bills_resolver.dart';

@@ -97,7 +97,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget button() =>  PrimaryButton(
     title: 'Login',
     onTap: (){
-      Navigator.restorablePushNamed(context, '/settings');
+      Navigator.restorablePushNamed(context, '/bills');
     }
   );
 
