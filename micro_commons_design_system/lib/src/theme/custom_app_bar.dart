@@ -5,11 +5,13 @@ import './colors_palette.dart';
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Widget? action;
   final double? height;
+  final TabBar? tabBar;
   final String title;
 
   const CustomAppBar({
     Key? key,
     required this.title,
+    this.tabBar,
     this.height,
     this.action,
   }) : super(key: key);
@@ -27,6 +29,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       actions: action != null ? [
         action!
       ] : [],
+      bottom: tabBar,
       backgroundColor: ColorsPalette.black2,
       elevation: 0,
       title: Text(title, style: TextStyles.header),
