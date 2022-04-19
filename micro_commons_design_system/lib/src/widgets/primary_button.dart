@@ -31,7 +31,7 @@ class PrimaryButton extends StatelessWidget {
         child: Container(
           alignment: Alignment.center,
           child: Padding(
-            padding: const EdgeInsets.all(Spacing.x2, ),
+            padding: const EdgeInsets.all(Spacing.x2Half),
             child: Text(title, style: TextStyles.buttonText(color: ColorsPalette.black2)),
           ),
         ),

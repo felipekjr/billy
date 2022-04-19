@@ -10,28 +10,35 @@ class TextStyles {
   );
 
   static TextStyle normal({Color? color}) => TextStyle(
-    fontSize: 14.0,
+    fontSize: 16.0,
     color: color ?? ColorsPalette.foreground,
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeight.normal,
+    fontFamily: 'Gotham',
+  );
+
+  static TextStyle normalBold({Color? color}) => TextStyle(
+    fontSize: 16.0,
+    color: color ?? ColorsPalette.foreground,
+    fontWeight: FontWeight.bold,
     fontFamily: 'Gotham',
   );
 
   static TextStyle medium({Color? color}) => TextStyle(
-    fontSize: 16.0,
+    fontSize: 18.0,
     color: color ?? ColorsPalette.foreground,
     fontWeight: FontWeight.w500,
     fontFamily: 'Gotham',
   );
   
   static TextStyle header = TextStyle(
-    fontSize: 16.0,
+    fontSize: 20.0,
     color: ColorsPalette.foreground,
     fontWeight: FontWeight.w700,
     fontFamily: 'Gotham',
   );
 
   static TextStyle normalThin({Color? color}) => TextStyle(
-    fontSize: 14.0,
+    fontSize: 16.0,
     color: color ?? ColorsPalette.foreground,
     fontWeight: FontWeight.w300,
     fontFamily: 'Gotham',
@@ -66,7 +73,7 @@ class TextStyles {
   );
 
   static TextStyle sectionTitle({Color? color}) =>TextStyle(
-    fontSize: 15.0,
+    fontSize: 20.0,
     color: color ?? ColorsPalette.foreground,
     fontWeight: FontWeight.bold,
     fontFamily: 'Gotham',

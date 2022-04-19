@@ -40,14 +40,14 @@ class _HomePageState extends State<HomePage> {
         child: SafeArea(
           child: Padding(
             padding: const EdgeInsets.symmetric(
-              vertical: Spacing.x2,
-              horizontal: Spacing.x4
+              vertical: Spacing.x5,
+              horizontal:Spacing.x3
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const Logo(),
-                const SizedBox(height: Spacing.x6),
+                const SizedBox(height: Spacing.x10),
                 Column(
                   children: [
                     carouselSlide(),
@@ -55,7 +55,7 @@ class _HomePageState extends State<HomePage> {
                     indicators(),
                   ],
                 ),
-                const SizedBox(height: Spacing.x8),
+                const SizedBox(height: Spacing.x10),                
                 buttons()
               ],
             ),
@@ -116,7 +116,7 @@ class _HomePageState extends State<HomePage> {
     PrimaryButton(title: 'Cadastre-se', onTap: (){
       Navigator.pushNamed(context, '/onboarding/register');
     }),
-    const SizedBox(height: Spacing.x2),
+    const SizedBox(height: Spacing.x2Half),
     SecondaryButton(title: 'Login', onTap: () {
       Navigator.pushNamed(context, '/login');
     })

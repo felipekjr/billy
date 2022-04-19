@@ -19,10 +19,14 @@ class HomePage extends HookWidget {
       appBar: CustomAppBar(
         title: 'Despesas',
         height: 100,
-        action: IconButton(
-          icon: const Icon(Icons.tune),
-          tooltip: 'Ajustes',
-          onPressed: () => Navigator.pushNamed(context, '/settings'),
+        hideLeading: true,
+        action: Padding(
+          padding: const EdgeInsets.only(right: Spacing.x1),
+          child: IconButton(
+            icon: const Icon(Icons.tune, size: 30),
+            tooltip: 'Ajustes',
+            onPressed: () => Navigator.pushNamed(context, '/settings'),
+          ),
         ),
         tabBar: TabBar(
           controller: tabController,

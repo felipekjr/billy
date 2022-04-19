@@ -26,7 +26,7 @@ class _LoginPageState extends State<LoginPage> {
         child: Padding(
           padding: const EdgeInsets.symmetric(
             vertical: Spacing.x4,
-            horizontal: Spacing.x4
+            horizontal: Spacing.x2
           ),
           child: Container(
             constraints: BoxConstraints(
@@ -97,7 +97,8 @@ class _LoginPageState extends State<LoginPage> {
   Widget button() =>  PrimaryButton(
     title: 'Login',
     onTap: (){
-      Navigator.restorablePushNamed(context, '/bills');
+      Navigator.pop(context);
+      Navigator.pushReplacementNamed(context, '/bills');
     }
   );
 

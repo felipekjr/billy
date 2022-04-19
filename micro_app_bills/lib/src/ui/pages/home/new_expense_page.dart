@@ -11,22 +11,27 @@ class NewExpensePage extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(
             vertical: Spacing.x4,
-            horizontal: Spacing.x4
+            horizontal: Spacing.x2Half
           ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              form(),
-              const SizedBox(height: Spacing.x5),
-              SecondaryButton(title: 'Adicionar', onTap: () {})
-            ]
+          child: Container(
+            constraints: BoxConstraints(minHeight: MediaQuery.of(context).size.height * .7),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                title(),
+                form(),
+                const SizedBox(height: Spacing.x3),
+                SecondaryButton(title: 'Adicionar', onTap: () {})
+              ]
+            ),
           ),
         ),
       ),
     );
   }
 
-  Widget title() => Center(child: Text('Nova despesa', style: TextStyles.sectionTitle()));
+  Widget title() => Text('Adicionar despesa', style: TextStyles.title());
   Widget form() => Column(children: [
     Input(
       label: 'Nome',
@@ -53,6 +58,7 @@ class NewExpensePage extends StatelessWidget {
       errorText: 'Nome inválido',
       onChanged: (String v) {},
     ),
+     formSpacing(),
   ]);
 
   Widget toggle() => Row(

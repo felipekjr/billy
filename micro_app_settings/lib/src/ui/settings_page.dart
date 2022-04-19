@@ -21,7 +21,7 @@ class _SettingsPageState extends State<SettingsPage> {
           child: Padding(
             padding: const EdgeInsets.symmetric(
               vertical: Spacing.x4,
-              horizontal: Spacing.x4
+              horizontal: Spacing.x2
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -32,7 +32,9 @@ class _SettingsPageState extends State<SettingsPage> {
                 const SizedBox(height: Spacing.x4),
                 linkSection(title: 'Contribua', itens: ['Repositório']),
                 const SizedBox(height: Spacing.x4),
-                linkSection(title: 'Organizadores', itens: ['Felipe Rodrigues'])
+                linkSection(title: 'Organizadores', itens: ['Felipe Rodrigues']),
+                const SizedBox(height: Spacing.x4),
+                generalSection()
               ]
             ),
           ),
@@ -44,7 +46,7 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget budgetContainer() => Column(
     children: [
       Text('Orçamento Mensal', style: TextStyles.sectionTitle()),
-      const SizedBox(height: Spacing.x2Half),
+      const SizedBox(height: Spacing.x4),
       Container(
         margin: const EdgeInsets.symmetric(horizontal: Spacing.x5),
         decoration: BoxDecoration(
@@ -53,13 +55,14 @@ class _SettingsPageState extends State<SettingsPage> {
           ),
         ),
         child: TextField(
-          style: TextStyles.title(),
+          style: TextStyles.title().merge(const TextStyle(fontSize: 40)),
           textAlign: TextAlign.center,
           keyboardType: TextInputType.number,
           decoration:InputDecoration(
             contentPadding: const EdgeInsets.all(0),
             hintText: 'R\$ 00,00',
-            hintStyle: TextStyles.title(color: ColorsPalette.currentLine),
+            hintStyle: TextStyles.title(color: ColorsPalette.currentLine)
+              .merge(const TextStyle(fontSize: 40)),
             border: InputBorder.none
           )
         ),
@@ -83,10 +86,7 @@ class _SettingsPageState extends State<SettingsPage> {
   );
 
   Widget infoItem(String text) => Container(
-    padding: const EdgeInsets.symmetric(
-      vertical: Spacing.x1Half,
-      horizontal: Spacing.x2
-    ),
+    padding: const EdgeInsets.all(Spacing.x2),
     decoration: BoxDecoration(
       color: ColorsPalette.black2,
       borderRadius: const BorderRadius.all(Radius.circular(5))
@@ -103,10 +103,7 @@ class _SettingsPageState extends State<SettingsPage> {
       Text(title, style: TextStyles.sectionTitle()),
       const SizedBox(height: Spacing.x1Half),
       ...itens.map((e) => Container(
-        padding: const EdgeInsets.symmetric(
-          vertical: Spacing.x1,
-          horizontal: Spacing.x2
-        ),
+        padding: const EdgeInsets.all(Spacing.x2),
         decoration: BoxDecoration(
           color: ColorsPalette.currentLine,
           borderRadius: const BorderRadius.all(Radius.circular(5))
@@ -123,5 +120,30 @@ class _SettingsPageState extends State<SettingsPage> {
         ),
       )).toList()
     ],
+  );
+
+  Widget generalSection() => Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Text('Geral', style: TextStyles.sectionTitle()),
+      const SizedBox(height: Spacing.x1Half),
+      exit()
+    ]
+  );
+
+  Widget exit() => Container(
+    padding: const EdgeInsets.all(Spacing.x2),
+    decoration: BoxDecoration(
+      color: ColorsPalette.black2,
+      borderRadius: const BorderRadius.all(Radius.circular(5))
+    ),    
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Icon(Icons.exit_to_app, color: ColorsPalette.red),
+        const SizedBox(width: Spacing.x1Half),
+        Text('Sair', style: TextStyles.medium(color: ColorsPalette.red))
+      ]
+    ),
   );
 }

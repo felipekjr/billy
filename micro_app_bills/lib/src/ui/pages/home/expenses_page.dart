@@ -40,8 +40,8 @@ class ExpensesPage extends StatelessWidget {
       child: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(
-            vertical: Spacing.x4,
-            horizontal: Spacing.x2
+            vertical: Spacing.x2,
+            horizontal: 0
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -94,7 +94,7 @@ class ExpensesPage extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(expense.name, style: TextStyles.normal()),
+                      Text(expense.name, style: TextStyles.normalBold()),
                       const SizedBox(height: Spacing.x1),
                       Row(children: [
                         Text(expense.date.label(), style: TextStyles.smallThin()),
@@ -109,7 +109,7 @@ class ExpensesPage extends StatelessWidget {
                 ],
               ),
             ),   
-            Text('R\$ -${expense.value}', style: TextStyles.normal()),
+            Text('R\$ ${expense.value}', style: TextStyles.normalBold()),
           ]
         ),
       ),

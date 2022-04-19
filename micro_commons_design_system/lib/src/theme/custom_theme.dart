@@ -4,5 +4,6 @@ import './colors_palette.dart';
 class CustomTheme {
   static ThemeData data = ThemeData(
     scaffoldBackgroundColor: ColorsPalette.black,
+    accentColor: ColorsPalette.comment
   );
 }

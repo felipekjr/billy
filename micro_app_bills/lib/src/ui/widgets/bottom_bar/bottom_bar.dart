@@ -11,7 +11,7 @@ class BottomBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 55,
+      height: 60,
       child: BottomNavigationBar(
         elevation: 0,
         backgroundColor: ColorsPalette.black2,
@@ -27,17 +27,22 @@ class BottomBar extends StatelessWidget {
             Navigator.pushReplacementNamed(context, '/bills/status');
           }
         },
-        items: const [
+        items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.money_off),
+            icon: iconContainer(Icons.money_off),
             label: 'Despesas',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.donut_large),
+            icon: iconContainer(Icons.donut_large),
             label: 'Status',
           ),
         ]
       ),
     );
   }
+
+  Widget iconContainer(IconData icon) => Container(
+    margin: const EdgeInsets.only(bottom: Spacing.half),
+    child: Icon(icon, size: 24,)
+  );
 }

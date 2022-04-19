@@ -20,7 +20,7 @@ class _RegisterUserPageState extends State<RegisterUserPage> {
           child: Padding(
             padding: const EdgeInsets.symmetric(
               vertical: Spacing.x4,
-              horizontal: Spacing.x4
+              horizontal: Spacing.x2
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -29,7 +29,7 @@ class _RegisterUserPageState extends State<RegisterUserPage> {
                 title(),
                 const SizedBox(height: Spacing.x5),
                 form(),
-                const SizedBox(height: Spacing.x5),
+                const SizedBox(height: Spacing.x12),
                 button(),
             ]),
           ),
