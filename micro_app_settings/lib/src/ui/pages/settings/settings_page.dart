@@ -2,8 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:micro_commons_design_system/micro_commons_design_system.dart';
 import 'dart:math' as math;
 
+import 'settings.dart';
+
+class LinkItem {
+  final String name;
+  final String url;
+
+  const LinkItem({
+    required this.name,
+    required this.url
+  });
+}
+
 class SettingsPage extends StatefulWidget {
-  const SettingsPage({ Key? key }) : super(key: key);
+  final SettingsPresenter presenter;
+  const SettingsPage({ Key? key, required this.presenter }) : super(key: key);
 
   @override
   State<SettingsPage> createState() => _SettingsPageState();
@@ -30,9 +43,13 @@ class _SettingsPageState extends State<SettingsPage> {
                 const SizedBox(height: Spacing.x5),
                 profileContainer(),
                 const SizedBox(height: Spacing.x4),
-                linkSection(title: 'Contribua', itens: ['Repositório']),
+                linkSection(title: 'Contribua', itens: const [
+                  LinkItem(name: 'Repositório', url: 'https://github.com/felipekjr/billy')
+                ]),
                 const SizedBox(height: Spacing.x4),
-                linkSection(title: 'Organizadores', itens: ['Felipe Rodrigues']),
+                linkSection(title: 'Organizadores', itens: const [
+                  LinkItem(name: 'Felipe Rodrigues', url: 'https://www.linkedin.com/in/felipekjr/')
+                ]),
                 const SizedBox(height: Spacing.x4),
                 generalSection()
               ]
@@ -96,30 +113,35 @@ class _SettingsPageState extends State<SettingsPage> {
 
   Widget linkSection({
     required String title,
-    required List<String> itens
+    required List<LinkItem> itens
   }) => Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       Text(title, style: TextStyles.sectionTitle()),
       const SizedBox(height: Spacing.x1Half),
-      ...itens.map((e) => Container(
-        padding: const EdgeInsets.all(Spacing.x2),
-        decoration: BoxDecoration(
-          color: ColorsPalette.currentLine,
-          borderRadius: const BorderRadius.all(Radius.circular(5))
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(e, style: TextStyles.normal()),
-            Transform.rotate(
-              angle: -math.pi / 4,
-              child: Icon(Icons.arrow_forward, color: ColorsPalette.foreground)
-            )
-          ]
-        ),
-      )).toList()
+      ...itens.map((e) => linkItem(e)).toList()
     ],
+  );
+
+  Widget linkItem(LinkItem item) => GestureDetector(
+    onTap: () => widget.presenter.launchUrl(item.url),
+    child: Container(
+      padding: const EdgeInsets.all(Spacing.x2),
+      decoration: BoxDecoration(
+        color: ColorsPalette.currentLine,
+        borderRadius: const BorderRadius.all(Radius.circular(5))
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(item.name, style: TextStyles.normal()),
+          Transform.rotate(
+            angle: -math.pi / 4,
+            child: Icon(Icons.arrow_forward, color: ColorsPalette.foreground)
+          )
+        ]
+      ),
+    ),
   );
 
   Widget generalSection() => Column(
