@@ -20,6 +20,7 @@ class NewExpensePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 title(),
+                const SizedBox(height: Spacing.x3),
                 form(),
                 const SizedBox(height: Spacing.x3),
                 SecondaryButton(title: 'Adicionar', onTap: () {})
