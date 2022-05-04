@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:micro_app_onboarding/src/ui/helpers/ui_state.dart';
+import 'package:micro_commons_deps/micro_commons_deps.dart';
 
 import '../domain/entities/user_entity.dart';
 import '../domain/usecases/register_user.dart';
@@ -23,9 +24,9 @@ class ValueNotifierRegisterUserPresenter implements RegisterUserPresenter {
 
   @override
   void init() {
-    formValidNotifier = ValueNotifier(true);
-    stateNotifier = ValueNotifier(const UIInitialState());
-    userNotifier = ValueNotifier(null);
+    formValidNotifier = useValueNotifier(true);
+    stateNotifier = useValueNotifier(const UIInitialState());
+    userNotifier = useValueNotifier(null);
   }
   
   @override
@@ -35,12 +36,5 @@ class ValueNotifierRegisterUserPresenter implements RegisterUserPresenter {
     } catch (_) {
       stateNotifier.value = const UIErrorState('Erro ao cadastrar usuário');
     }
-  }
-
-  @override
-  void dispose() {
-    formValidNotifier.dispose();
-    userNotifier.dispose();
-    stateNotifier.dispose();
   }
 }

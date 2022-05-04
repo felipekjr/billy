@@ -8,6 +8,5 @@ abstract class RegisterUserPresenter {
   late ValueNotifier<UIState> stateNotifier;
 
   void init();
-  void dispose();
   void register();
 }
