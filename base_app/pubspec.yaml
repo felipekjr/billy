@@ -17,6 +17,8 @@ dependencies:
     path: ../micro_core
   micro_commons_design_system:
     path: ../micro_commons_design_system
+  micro_commons_deps:
+    path: ../micro_commons_deps
   micro_app_login:
     path: ../micro_app_login
   micro_app_onboarding:

@@ -1,14 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:micro_app_onboarding/src/ui/helpers/ui_state.dart';
+import 'package:micro_app_onboarding/src/ui/pages/register_user/register_user_presenter.dart';
 import 'package:micro_commons_design_system/micro_commons_design_system.dart';
 
 class RegisterUserPage extends StatefulWidget {
-  const RegisterUserPage({ Key? key }) : super(key: key);
+  final RegisterUserPresenter presenter;
+
+  const RegisterUserPage({
+    Key? key,
+    required this.presenter
+  }) : super(key: key);
 
   @override
   State<RegisterUserPage> createState() => _RegisterUserPageState();
 }
 
 class _RegisterUserPageState extends State<RegisterUserPage> {
+  @override
+  void initState() {
+    widget.presenter.init();
+    widget.presenter.stateNotifier.addListener(() {
+      final state = widget.presenter.stateNotifier.value;
+      if (state is UIErrorState) showErrorDialog(state.description);
+      if (state is UISuccessState) Navigator.pop(context);
+    });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +38,7 @@ class _RegisterUserPageState extends State<RegisterUserPage> {
           child: Padding(
             padding: const EdgeInsets.symmetric(
               vertical: Spacing.x4,
-              horizontal: Spacing.x2
+              horizontal: Spacing.x3
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -29,7 +47,7 @@ class _RegisterUserPageState extends State<RegisterUserPage> {
                 title(),
                 const SizedBox(height: Spacing.x5),
                 form(),
-                const SizedBox(height: Spacing.x12),
+                const SizedBox(height: Spacing.x5),
                 button(),
             ]),
           ),
@@ -89,14 +107,39 @@ class _RegisterUserPageState extends State<RegisterUserPage> {
     ]
   );
 
-  Widget button() =>  PrimaryButton(
-    title: 'Cadastrar',
-    onTap: (){
-
+  Widget button() =>  ValueListenableBuilder<bool>(
+    valueListenable: widget.presenter.formValidNotifier,
+    builder: (context, isValid, _) {
+      return PrimaryButton(
+        title: 'Cadastrar',
+        disabled: !isValid,
+        onTap: widget.presenter.register
+      );
     }
   );
 
   Widget formSpacing() => const SizedBox(
     height: Spacing.x3,
   );
+
+  Future<void> showErrorDialog(String message) async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false, // user must tap button!
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Erro'),
+          content: Center(child: Text(message),),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('Tente novamente'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
 }

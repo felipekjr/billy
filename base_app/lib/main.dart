@@ -4,15 +4,18 @@ import 'package:micro_app_bills/micro_app_bills.dart';
 import 'package:micro_app_login/micro_app_login.dart';
 import 'package:micro_app_onboarding/micro_app_onboarding.dart';
 import 'package:micro_app_settings/micro_app_settings.dart';
+import 'package:micro_commons_deps/micro_commons_deps.dart';
 import 'package:micro_commons_design_system/micro_commons_design_system.dart';
 import 'package:micro_core/base_app.dart';
 import 'package:micro_core/micro_core_utils.dart';
 import 'package:micro_core/micro_app.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   ErrorWidget.builder = (FlutterErrorDetails details) {
     return ErrorOverlay(details: details);
   };
+  await Firebase.initializeApp();  
   runApp(Billy());
 }
 
