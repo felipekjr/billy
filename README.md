@@ -27,9 +27,9 @@ execute the command ```sh flutter run``` on root folder to run the app
 - Google Calendar API
 
 ## Architecture
- - Clean Arc
- - Micro-apps approach
- - SOLID, DRY
+  - [MicroFrontends Approach](https://github.com/DeividWillyan/Micro-FrontEnds)
+  - [Clean Arc inside packages](https://medium.flutterdevs.com/explore-clean-architecture-in-flutter-3fff83e0f1f2)
+![](prints/CleanArchitecture.jpeg)
 
 ## TO-DO:
 - [ ] Onboarding
