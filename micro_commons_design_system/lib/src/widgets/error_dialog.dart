@@ -34,7 +34,7 @@ class ErrorDialog extends StatelessWidget {
                 onPressed: () => Navigator.pop(context), 
                 child: Text(
                   'Cancelar', 
-                  style: TextStyles.normal(color: ColorsPalette.foreground),
+                  style: TextStyles.normal(color: ColorsPalette.comment),
                 ),
               )
             ],

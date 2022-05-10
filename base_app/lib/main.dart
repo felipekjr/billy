@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:micro_app_bills/micro_app_bills.dart';
-
-import 'package:micro_app_login/micro_app_login.dart';
 import 'package:micro_app_onboarding/micro_app_onboarding.dart';
 import 'package:micro_app_settings/micro_app_settings.dart';
 import 'package:micro_commons_deps/micro_commons_deps.dart';
@@ -42,7 +40,6 @@ class Billy extends StatelessWidget with BaseApp {
   @override
   List<MicroApp> get microApps => [
     MicroAppOnboardingResolver(),
-    MicroAppLoginResolver(),
     MicroAppSettingsResolver(),
     MicroAppBillsResolver()
   ];

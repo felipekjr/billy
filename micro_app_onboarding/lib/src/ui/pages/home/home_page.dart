@@ -47,7 +47,7 @@ class _HomePageState extends State<HomePage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const Logo(),
-                const SizedBox(height: Spacing.x10),
+                const SizedBox(height: Spacing.x7),
                 Column(
                   children: [
                     carouselSlide(),
@@ -55,7 +55,7 @@ class _HomePageState extends State<HomePage> {
                     indicators(),
                   ],
                 ),
-                const SizedBox(height: Spacing.x10),                
+                const SizedBox(height: Spacing.x7),                
                 buttons()
               ],
             ),
@@ -67,7 +67,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget carouselSlide() => CarouselSlider(
     options: CarouselOptions(
-      height: 300.0,
+      height: 270.0,
       viewportFraction: 1.0,
       autoPlay: true,
        onPageChanged: (index, reason) {
@@ -81,7 +81,7 @@ class _HomePageState extends State<HomePage> {
             Image.asset(
               slide.path, 
               package: 'micro_app_onboarding',
-              height: 220,
+              height: 200,
             ),
             const SizedBox(height: Spacing.x4),
             Center(child: Text(
@@ -118,7 +118,7 @@ class _HomePageState extends State<HomePage> {
     }),
     const SizedBox(height: Spacing.x2Half),
     SecondaryButton(title: 'Login', onTap: () {
-      Navigator.pushNamed(context, '/login');
+      Navigator.pushNamed(context, '/onboarding/login');
     })
   ]);
 }

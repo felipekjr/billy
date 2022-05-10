@@ -33,9 +33,9 @@ execute the command ```sh flutter run``` on root folder to run the app
 
 ## TO-DO:
 - [ ] Onboarding
-- [ ] Add bill
-- [ ] List bills
-- [ ] Adjusts page
+- [ ] Authentication
+- [ ] Bills module
+- [ ] Settings module
 - [ ] Status page
 - [ ] Unit & Widget tests
 - [ ] Golden Tests

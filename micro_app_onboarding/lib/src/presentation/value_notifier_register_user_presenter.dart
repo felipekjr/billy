@@ -37,6 +37,7 @@ class ValueNotifierRegisterUserPresenter implements RegisterUserPresenter {
   void register() async {
     try {
       await registerUser(userNotifier.value);
+      stateNotifier.value = const UISuccessState('Usuário cadastrado com sucesso');
     } catch (e) {
       if (e == DomainErrors.invalidEmail) {
         stateNotifier.value = const UIErrorState('Email inválido');

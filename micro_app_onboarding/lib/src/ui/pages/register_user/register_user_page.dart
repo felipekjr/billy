@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:micro_commons_design_system/micro_commons_design_system.dart';
 
 import '../../../presentation/helpers/helpers.dart';
+import '../../helpers/helpers.dart';
+import '../../widgets/widgets.dart';
 import 'register_user_presenter.dart';
 
 class RegisterUserPage extends StatefulWidget {
@@ -20,40 +22,33 @@ class _RegisterUserPageState extends State<RegisterUserPage> {
   @override
   void initState() {
     widget.presenter.init();
-    widget.presenter.stateNotifier.addListener(() {
-      final state = widget.presenter.stateNotifier.value;
-      if (state is UIErrorState) showErrorDialog(state.description);
-      if (state is UISuccessState) Navigator.pop(context);
-    });
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const CustomAppBar(
-        title: 'Cadastro',
-      ),
-      body: SingleChildScrollView(
-        child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(
-              vertical: Spacing.x4,
-              horizontal: Spacing.x3
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                title(),
-                const SizedBox(height: Spacing.x5),
-                form(),
-                const SizedBox(height: Spacing.x5),
-                button(),
-            ]),
-          ),
+    return BasePageWidget(
+      title: 'Cadastro', 
+      state: widget.presenter.stateNotifier, 
+      children: [
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            title(),
+            const SizedBox(height: Spacing.x5),
+            form(),
+            const SizedBox(height: Spacing.x5),
+          ],
         ),
-      )
+        button(),
+      ], 
+      onError: () {
+        showErrorDialog(context, widget.presenter.stateNotifier.value.description);
+      }, 
+      onSuccess: (String message) {
+        showSuccessSnackbar(context, message);
+        Navigator.pop(context);
+      },
     );
   }
 
@@ -121,14 +116,4 @@ class _RegisterUserPageState extends State<RegisterUserPage> {
   Widget formSpacing() => const SizedBox(
     height: Spacing.x3,
   );
-
-  Future<void> showErrorDialog(String message) async {
-    return showDialog<void>(
-      context: context,
-      barrierDismissible: true,
-      builder: (BuildContext context) {
-        return ErrorDialog(message: message);
-      },
-    );
-  }
 }

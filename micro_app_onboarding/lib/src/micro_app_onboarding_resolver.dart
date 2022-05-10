@@ -18,7 +18,8 @@ class MicroAppOnboardingResolver implements MicroApp {
   @override
   Map<String, WidgetBuilderArgs> get routes => {
     '/$name': (context, args) => const HomePage(),
-    '/$name/register': (context, args) => makeUserPage()
+    '/$name/register': (context, args) => makeUserPage(),
+    '/$name/login': (context, args) => makeLoginPage()
   };
 
 }

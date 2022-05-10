@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:micro_app_onboarding/src/ui/helpers/show_error_dialog_helper.dart';
 import 'package:micro_commons_design_system/micro_commons_design_system.dart';
 
+import '../../widgets/widgets.dart';
+import 'login_presenter.dart';
+
 class LoginPage extends StatefulWidget {
-  const LoginPage({ Key? key }) : super(key: key);
+  final LoginPresenter presenter;
+  const LoginPage({ 
+    Key? key,
+    required this.presenter
+  }) : super(key: key);
 
   @override
   _LoginPageState createState() => _LoginPageState();
@@ -12,45 +20,40 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   void initState() {
+    widget.presenter.init();
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    widget.presenter.dispose();
+    super.dispose();
   }
   
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const CustomAppBar(
-        title: 'Login',
-      ),
-      resizeToAvoidBottomInset: false,
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(
-            vertical: Spacing.x4,
-            horizontal: Spacing.x2
-          ),
-          child: Container(
-            constraints: BoxConstraints(
-              minHeight: MediaQuery.of(context).size.height
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    title(),
-                    const SizedBox(height: Spacing.x5),
-                    form(),
-                    const SizedBox(height: Spacing.x4),
-                    forgotPassword()
-                  ]
-                ),
-                button(),
-            ]),
-          ),
+    return BasePageWidget(
+      title: 'Login', 
+      children: [
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            title(),
+            const SizedBox(height: Spacing.x5),
+            form(),
+            const SizedBox(height: Spacing.x4),
+            forgotPassword()
+          ]
         ),
-      )
+        button(),
+      ], 
+      state: widget.presenter.stateNotifier, 
+      onError: (){
+        showErrorDialog(context, widget.presenter.stateNotifier.value.description);
+      }, 
+      onSuccess: (String message){
+        Navigator.pushReplacementNamed(context, '/bills');
+      }
     );
   }
 
@@ -96,10 +99,7 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget button() =>  PrimaryButton(
     title: 'Login',
-    onTap: (){
-      Navigator.pop(context);
-      Navigator.pushReplacementNamed(context, '/bills');
-    }
+    onTap: widget.presenter.authenticate
   );
 
   Widget formSpacing() => const SizedBox(
