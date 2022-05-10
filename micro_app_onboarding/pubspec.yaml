@@ -18,8 +18,8 @@ dependencies:
     path: ../micro_commons_design_system
   micro_commons_deps:
     path: ../micro_commons_deps
-  micro_commons_infra:
-    path: ../micro_commons_infra
+  micro_commons_architecture:
+    path: ../micro_commons_architecture
 
 dev_dependencies:
   flutter_test:

@@ -113,6 +113,34 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.0"
+  faker:
+    dependency: transitive
+    description:
+      name: faker
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.0"
+  firebase_auth:
+    dependency: transitive
+    description:
+      name: firebase_auth
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.3.17"
+  firebase_auth_platform_interface:
+    dependency: transitive
+    description:
+      name: firebase_auth_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "6.2.5"
+  firebase_auth_web:
+    dependency: transitive
+    description:
+      name: firebase_auth_web
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.3.14"
   firebase_core:
     dependency: transitive
     description:
@@ -184,6 +212,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  http_parser:
+    dependency: transitive
+    description:
+      name: http_parser
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.0.0"
   image:
     dependency: transitive
     description:
@@ -191,6 +226,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.1.3"
+  intl:
+    dependency: transitive
+    description:
+      name: intl
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.17.0"
   js:
     dependency: transitive
     description:
@@ -261,6 +303,13 @@ packages:
       relative: true
     source: path
     version: "0.0.1"
+  micro_commons_architecture:
+    dependency: transitive
+    description:
+      path: "../micro_commons_architecture"
+      relative: true
+    source: path
+    version: "0.0.1"
   micro_commons_deps:
     dependency: "direct main"
     description:
@@ -272,13 +321,6 @@ packages:
     dependency: "direct main"
     description:
       path: "../micro_commons_design_system"
-      relative: true
-    source: path
-    version: "0.0.1"
-  micro_commons_infra:
-    dependency: transitive
-    description:
-      path: "../micro_commons_infra"
       relative: true
     source: path
     version: "0.0.1"

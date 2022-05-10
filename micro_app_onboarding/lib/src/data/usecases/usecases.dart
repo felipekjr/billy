@@ -1,0 +1,1 @@
+export './firebase_register_user.dart';

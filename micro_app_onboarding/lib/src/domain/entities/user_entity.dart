@@ -5,15 +5,32 @@ class UserEntity extends Equatable {
   final String email;
   final String phoneNumber;
   final String password;
-  final String confirmationPassword;
+  final String? confirmationPassword;
 
   const UserEntity({
     required this.name,
     required this.email,
     required this.phoneNumber,
     required this.password,
-    required this.confirmationPassword
+    this.confirmationPassword
   });
+
+  factory UserEntity.empty() => const UserEntity(
+    name: '', email: '', phoneNumber: '', password: ''
+  );
+
+  copy({
+    String? name,
+    String? email,
+    String? phoneNumber,
+    String? password,
+    String? confirmationPassword
+  }) => UserEntity(
+    name: name ?? this.name, 
+    email: email ?? this.email, 
+    phoneNumber: phoneNumber ?? this.phoneNumber, 
+    password: password ?? this.password, 
+  );
 
   Map toJson() => {
     'name': name,

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:micro_app_onboarding/src/ui/helpers/ui_state.dart';
-import 'package:micro_app_onboarding/src/ui/pages/register_user/register_user_presenter.dart';
 import 'package:micro_commons_design_system/micro_commons_design_system.dart';
+
+import '../../../presentation/helpers/helpers.dart';
+import 'register_user_presenter.dart';
 
 class RegisterUserPage extends StatefulWidget {
   final RegisterUserPresenter presenter;
@@ -66,9 +67,11 @@ class _RegisterUserPageState extends State<RegisterUserPage> {
       Input(
         label: 'Nome',
         hint: 'Digite seu nome',
-        error: true,
+        error: false,
         errorText: 'Nome inválido',
-        onChanged: (String v) {},
+        onChanged: (String v) {
+          widget.presenter.validateField(UserFields.name, v);
+        },
       ),
       formSpacing(),
       Input(
@@ -76,7 +79,9 @@ class _RegisterUserPageState extends State<RegisterUserPage> {
         hint: 'Digite seu e-mail',
         error: false,
         errorText: 'E-mail inválido',
-        onChanged: (String v) {},
+        onChanged: (String v) {
+          widget.presenter.validateField(UserFields.email, v);
+        },
       ),
       formSpacing(),
       Input(
@@ -84,7 +89,9 @@ class _RegisterUserPageState extends State<RegisterUserPage> {
         hint: 'Digite seu telefone',
         error: false,
         errorText: 'Telefone inválido',
-        onChanged: (String v) {},
+        onChanged: (String v) {
+          widget.presenter.validateField(UserFields.phoneNumber, v);
+        },
       ),
       formSpacing(),
       Input(
@@ -93,16 +100,9 @@ class _RegisterUserPageState extends State<RegisterUserPage> {
         error: false,
         errorText: 'Senha inválida',
         obscure: true,
-        onChanged: (String v) {},
-      ),
-      formSpacing(),
-      Input(
-        label: 'Confirmar senha',
-        hint: 'Digite sua senha',
-        error: false,
-        errorText: 'Senha inválida',
-        obscure: true,
-        onChanged: (String v) {},
+        onChanged: (String v) {
+          widget.presenter.validateField(UserFields.password, v);
+        },
       ),
     ]
   );
@@ -125,20 +125,9 @@ class _RegisterUserPageState extends State<RegisterUserPage> {
   Future<void> showErrorDialog(String message) async {
     return showDialog<void>(
       context: context,
-      barrierDismissible: false, // user must tap button!
+      barrierDismissible: true,
       builder: (BuildContext context) {
-        return AlertDialog(
-          title: const Text('Erro'),
-          content: Center(child: Text(message),),
-          actions: <Widget>[
-            TextButton(
-              child: const Text('Tente novamente'),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        );
+        return ErrorDialog(message: message);
       },
     );
   }
