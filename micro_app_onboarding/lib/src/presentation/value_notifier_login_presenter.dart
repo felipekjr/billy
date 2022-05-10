@@ -9,7 +9,7 @@ class ValueNotifierLoginPresenter implements LoginPresenter {
 
   @override
   void authenticate() {
-    // TODO: implement authenticate
+    stateNotifier.value = const UISuccessState('');
   }
 
   @override
@@ -19,7 +19,7 @@ class ValueNotifierLoginPresenter implements LoginPresenter {
 
   @override
   void init() {
-    stateNotifier = ValueNotifier(UIInitialState());
+    stateNotifier = ValueNotifier(const UIInitialState());
   }
 
   @override

@@ -52,7 +52,7 @@ class _LoginPageState extends State<LoginPage> {
         showErrorDialog(context, widget.presenter.stateNotifier.value.description);
       }, 
       onSuccess: (String message){
-        Navigator.pushReplacementNamed(context, '/bills');
+        Navigator.pushNamedAndRemoveUntil(context, '/bills', (Route<dynamic> route) => false);
       }
     );
   }

@@ -2,17 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:micro_commons_design_system/micro_commons_design_system.dart';
 import 'dart:math' as math;
 
+import '../../../domain/entities/entities.dart';
 import 'settings.dart';
-
-class LinkItem {
-  final String name;
-  final String url;
-
-  const LinkItem({
-    required this.name,
-    required this.url
-  });
-}
 
 class SettingsPage extends StatefulWidget {
   final SettingsPresenter presenter;
@@ -44,11 +35,11 @@ class _SettingsPageState extends State<SettingsPage> {
                 profileContainer(),
                 const SizedBox(height: Spacing.x4),
                 linkSection(title: 'Contribua', itens: const [
-                  LinkItem(name: 'Repositório', url: 'https://github.com/felipekjr/billy')
+                  LinkItemEntity(name: 'Repositório', url: 'https://github.com/felipekjr/billy')
                 ]),
                 const SizedBox(height: Spacing.x4),
                 linkSection(title: 'Organizadores', itens: const [
-                  LinkItem(name: 'Felipe Rodrigues', url: 'https://www.linkedin.com/in/felipekjr/')
+                  LinkItemEntity(name: 'Felipe Rodrigues', url: 'https://www.linkedin.com/in/felipekjr/')
                 ]),
                 const SizedBox(height: Spacing.x4),
                 generalSection()
@@ -113,7 +104,7 @@ class _SettingsPageState extends State<SettingsPage> {
 
   Widget linkSection({
     required String title,
-    required List<LinkItem> itens
+    required List<LinkItemEntity> itens
   }) => Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
@@ -123,7 +114,7 @@ class _SettingsPageState extends State<SettingsPage> {
     ],
   );
 
-  Widget linkItem(LinkItem item) => GestureDetector(
+  Widget linkItem(LinkItemEntity item) => GestureDetector(
     onTap: () => widget.presenter.launchUrl(item.url),
     child: Container(
       padding: const EdgeInsets.all(Spacing.x2),
@@ -153,19 +144,22 @@ class _SettingsPageState extends State<SettingsPage> {
     ]
   );
 
-  Widget exit() => Container(
-    padding: const EdgeInsets.all(Spacing.x2),
-    decoration: BoxDecoration(
-      color: ColorsPalette.black2,
-      borderRadius: const BorderRadius.all(Radius.circular(5))
-    ),    
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Icon(Icons.exit_to_app, color: ColorsPalette.red),
-        const SizedBox(width: Spacing.x1Half),
-        Text('Sair', style: TextStyles.medium(color: ColorsPalette.red))
-      ]
+  Widget exit() => GestureDetector(
+    onTap: () => Navigator.pushNamedAndRemoveUntil(context, '/onboarding', (Route<dynamic> route) => false),
+    child: Container(
+      padding: const EdgeInsets.all(Spacing.x2),
+      decoration: BoxDecoration(
+        color: ColorsPalette.black2,
+        borderRadius: const BorderRadius.all(Radius.circular(5))
+      ),    
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(Icons.exit_to_app, color: ColorsPalette.red),
+          const SizedBox(width: Spacing.x1Half),
+          Text('Sair', style: TextStyles.medium(color: ColorsPalette.red))
+        ]
+      ),
     ),
   );
 }

@@ -1,26 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:micro_commons_design_system/micro_commons_design_system.dart';
 
+import '../../../domain/entities/entities.dart';
+
 extension DateTimeExtension on DateTime {
   String label() {
     return '${this.day}/${this.month}/${this.year}';
   }
 }
-class ExpenseEntity {
-  final double value;
-  final String name;
-  final bool isRecurrent;
-  final DateTime date;
-  final bool isPaid;
-
-  const ExpenseEntity({
-    required this.date,
-    required this.value,
-    required this.name,
-    required this.isRecurrent,
-    required this.isPaid
-  });
-} 
 
 class ExpensesPage extends StatelessWidget {
   ExpensesPage({ Key? key }) : super(key: key);

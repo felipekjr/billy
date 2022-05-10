@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:micro_commons_design_system/micro_commons_design_system.dart';
 
-import '../widgets/widgets.dart';
+import '../../widgets/widgets.dart';
 
 class StatusPage extends StatefulWidget {
   const StatusPage({ Key? key }) : super(key: key);
