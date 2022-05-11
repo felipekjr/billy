@@ -1,0 +1,76 @@
+{
+	"testUseCase": {
+		"prefix": "tusecase",
+		"body": [
+			"import 'package:flutter_test/flutter_test.dart';",
+			"void main() {",
+			"\t$1sut;",
+			" ",
+			"\tsetUp(() {",  
+			"\t\tsut = $1();",  
+			"\t});",
+			" ",
+			"\ttest('Should return [YOUR_DATA_TYPE] if httpClient returns 200', () async {",
+			"\t ",
+			"\t});",
+			" ",
+			"\ttest('Should throw UnexpectedError if HttpClient returns 400', () async {",
+			"\t ",
+			"\t});",
+			" ",
+			"\ttest('Should throw InvalidCredentialsError if HttpClient returns 401', () async {",
+			"\t ",
+			"\t});",
+			"\ttest('Should return a empty list if HttpClient returns 404', () async {",
+			"\t ",
+			"\t});",
+			" ",
+			"\ttest('Should throw UnexpectedError if HttpClient returns 500', () async {",
+			"\t ",
+			"\t});",
+			"}"
+		]
+	},
+	"testPresenter": {
+		"prefix": "tpresenter",
+		"body": [
+			"import 'package:flutter_test/flutter_test.dart';",
+			"void main() {",
+			"\t$1sut;",
+			"\tsetUp(() {",  
+			"\t\tsut = $1();",  
+			"\t});",
+			"\ttest('Should init notifiers on init method', () async {",
+			"\t ",
+			"\t});",
+			"\ttest('Should dispose notifiers on dispose method', () async {",
+			"\t ",
+			"\t});",
+			"}"
+		]
+	},
+	"testPage": {
+		"prefix": "tpage",
+		"body": [
+			"import 'package:flutter/material.dart';",
+			"import 'package:flutter_test/flutter_test.dart';",
+			"void main() {",
+			"\t$2 presenterSpy;",
+			"\t$1 sut;",
+			"\tsetUpAll(() {",  
+			"\t\tTestWidgetsFlutterBinding.ensureInitialized();",  
+			"\t});",
+			"\tFuture<void> loadPage(WidgetTester tester) async {",  
+			"\t\tfinal Widget page = MaterialApp(",  
+			"\t\t\thome: $1(presenter: presenterSpy),",  
+			"\t\t);",  
+			"\t\tawait tester.pumpWidget(page);",  
+			"\t}",
+			" ",
+			"\ttestWidgets('Should render with initial values', (WidgetTester tester) async {",
+			"\t ",
+			"\t});",
+			"}"
+		]
+	}
+}
