@@ -8,12 +8,14 @@ import 'package:micro_core/base_app.dart';
 import 'package:micro_core/micro_core_utils.dart';
 import 'package:micro_core/micro_app.dart';
 
+import 'firebase_options.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   ErrorWidget.builder = (FlutterErrorDetails details) {
     return ErrorOverlay(details: details);
   };
-  await Firebase.initializeApp();  
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(Billy());
 }
 
