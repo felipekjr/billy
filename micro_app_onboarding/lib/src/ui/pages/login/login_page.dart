@@ -62,26 +62,43 @@ class _LoginPageState extends State<LoginPage> {
     style: TextStyles.title(),
   );
 
-  Widget form() => Column(
-    children: [
-      Input(
-        label: 'E-mail',
-        hint: 'Digite seu e-mail',
-        error: false,
-        errorText: 'E-mail inválido',
-        onChanged: (String v) {},
-      ),
-      formSpacing(),
-      Input(
-        label: 'Senha',
-        hint: 'Digite sua senha',
-        error: false,
-        errorText: 'Senha inválida',
-        obscure: true,
-        onChanged: (String v) {},
-      ),
-    ]
-  );
+  Widget form() {
+    return ValueListenableBuilder<bool>(
+      valueListenable: widget.presenter.buttonClickedNotifier,
+      builder: (context, buttonClicked, _) {
+        return Column(
+          children: [
+            ValueListenableBuilder<bool>(
+              valueListenable: widget.presenter.emailErrorNotifier,
+              builder: (context, emailError, _) => Input(
+                label: 'E-mail',
+                hint: 'Digite seu e-mail',
+                error: buttonClicked && emailError,
+                errorText: 'E-mail inválido',
+                onChanged: (String v) {
+                  widget.presenter.setEmail(v);
+                },
+              )
+            ),
+            formSpacing(),
+            ValueListenableBuilder<bool>(
+              valueListenable: widget.presenter.passwordErrorNotifier,
+              builder: (contex, passwordError, _) => Input(
+                label: 'Senha',
+                hint: 'Digite sua senha',
+                error: buttonClicked && passwordError,
+                errorText: 'Senha inválida',
+                obscure: true,
+                onChanged: (String v) {
+                  widget.presenter.setPassword(v);
+                },
+              )
+            ),
+          ]
+        );
+      }
+    );
+  }
 
   Widget forgotPassword() => GestureDetector(
     child: Align(

@@ -4,9 +4,15 @@ import '../../../presentation/helpers/helpers.dart';
 
 abstract class LoginPresenter {
   late ValueNotifier<UIState> stateNotifier;
+  late ValueNotifier<String> emailNotifier;
+  late ValueNotifier<String> passwordNotifier;
+  late ValueNotifier<bool> emailErrorNotifier;
+  late ValueNotifier<bool> passwordErrorNotifier;
+  late ValueNotifier<bool> buttonClickedNotifier;
 
-  void validateField(UserFields field, dynamic value);
+  void authenticate();
+  void setEmail(String email);
+  void setPassword(String password);
   void init();
   void dispose();
-  void authenticate();
 }
