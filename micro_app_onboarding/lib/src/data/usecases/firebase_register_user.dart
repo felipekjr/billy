@@ -15,8 +15,8 @@ final FirebaseAuth firebaseAuth;
   Future<void> call(UserEntity user) async {
     try {
       await firebaseAuth.createUserWithEmailAndPassword(
-        email: user.email,
-        password: user.password
+        email: user.email.trim(),
+        password: user.password.trim()
       );    
     } on FirebaseAuthException catch (e) {
       switch (e.code) {

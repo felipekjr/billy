@@ -57,58 +57,68 @@ class _RegisterUserPageState extends State<RegisterUserPage> {
     style: TextStyles.title(),
   );
 
-  Widget form() => Column(
-    children: [
-      Input(
-        label: 'Nome',
-        hint: 'Digite seu nome',
-        error: false,
-        errorText: 'Nome inválido',
-        onChanged: (String v) {
-          widget.presenter.validateField(UserFields.name, v);
-        },
-      ),
-      formSpacing(),
-      Input(
-        label: 'E-mail',
-        hint: 'Digite seu e-mail',
-        error: false,
-        errorText: 'E-mail inválido',
-        onChanged: (String v) {
-          widget.presenter.validateField(UserFields.email, v);
-        },
-      ),
-      formSpacing(),
-      Input(
-        label: 'Telefone',
-        hint: 'Digite seu telefone',
-        error: false,
-        errorText: 'Telefone inválido',
-        onChanged: (String v) {
-          widget.presenter.validateField(UserFields.phoneNumber, v);
-        },
-      ),
-      formSpacing(),
-      Input(
-        label: 'Senha',
-        hint: 'Digite sua senha',
-        error: false,
-        errorText: 'Senha inválida',
-        obscure: true,
-        onChanged: (String v) {
-          widget.presenter.validateField(UserFields.password, v);
-        },
-      ),
-    ]
+  Widget form() => ValueListenableBuilder<bool>(
+    valueListenable: widget.presenter.buttonClickedNotifier,
+    builder: (context, buttonClicked, _) {
+      return ValueListenableBuilder<Map<UserFields, bool>>(
+        valueListenable: widget.presenter.fieldErrorsMapNotifier,
+        builder: (context, errorsMap, _) {
+          return Column(
+            children: [
+              Input(
+                label: 'Nome',
+                hint: 'Digite seu nome',
+                error: buttonClicked && errorsMap[UserFields.name] == true,
+                errorText: 'Nome inválido',
+                onChanged: (String v) {
+                  widget.presenter.validateField(UserFields.name, v);
+                },
+              ),
+              formSpacing(),
+              Input(
+                label: 'E-mail',
+                hint: 'Digite seu e-mail',
+                error: buttonClicked && errorsMap[UserFields.email] == true,
+                errorText: 'E-mail inválido',
+                onChanged: (String v) {
+                  widget.presenter.validateField(UserFields.email, v);
+                },
+              ),
+              formSpacing(),
+              Input(
+                label: 'Telefone',
+                hint: 'Digite seu telefone',
+                error: buttonClicked && errorsMap[UserFields.phoneNumber] == true,
+                errorText: 'Telefone inválido',
+                onChanged: (String v) {
+                  widget.presenter.validateField(UserFields.phoneNumber, v);
+                },
+              ),
+              formSpacing(),
+              Input(
+                label: 'Senha',
+                hint: 'Digite sua senha',
+                error: buttonClicked && errorsMap[UserFields.password] == true,
+                errorText: 'Senha inválida',
+                obscure: true,
+                onChanged: (String v) {
+                  widget.presenter.validateField(UserFields.password, v);
+                },
+              ),
+            ]
+          );
+        }
+      );
+    }
   );
 
-  Widget button() =>  ValueListenableBuilder<bool>(
-    valueListenable: widget.presenter.formValidNotifier,
-    builder: (context, isValid, _) {
+  Widget button() =>  ValueListenableBuilder<UIState>(
+    valueListenable: widget.presenter.stateNotifier,
+    builder: (context, state, _) {
       return PrimaryButton(
         title: 'Cadastrar',
-        disabled: !isValid,
-        onTap: widget.presenter.register
+        onTap: widget.presenter.register,
+        loading: state is UILoadingState,
       );
     }
   );

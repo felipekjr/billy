@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import '../theme/theme.dart';
 
 class PrimaryButton extends StatelessWidget {
   final String title;
   final VoidCallback onTap;
   final bool disabled;
+  final bool loading;
 
   const PrimaryButton({
     Key? key,
     required this.title,
     required this.onTap,
-    this.disabled = false
+    this.disabled = false,
+    this.loading = false
    }) : super(key: key);
 
   @override
@@ -18,7 +21,7 @@ class PrimaryButton extends StatelessWidget {
     return Opacity(
       opacity: disabled ? .4 : 1,
       child: ElevatedButton(
-        onPressed: disabled ? null : onTap, 
+        onPressed: disabled || loading ? null : onTap, 
         style: ElevatedButton.styleFrom(
           padding: EdgeInsets.zero,
           shape: RoundedRectangleBorder(
@@ -36,9 +39,12 @@ class PrimaryButton extends StatelessWidget {
             alignment: Alignment.center,
             child: Padding(
               padding: const EdgeInsets.all(Spacing.x2Half),
-              child: Text(title, style: TextStyles.buttonText(color: ColorsPalette.black2)),
+              child: !loading ? Text(
+                title, 
+                style: TextStyles.buttonText(color: ColorsPalette.black2)
+              ) : SpinKitThreeBounce(size: 16, color: ColorsPalette.black2),
             ),
-          ),
+          ) 
         ),
       ),
     );
