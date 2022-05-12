@@ -20,7 +20,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   }) : super(key: key);
 
   @override
-  Size get preferredSize => Size.fromHeight(height ?? 60);
+  Size get preferredSize => Size.fromHeight(height ?? 55);
 
   @override
   Widget build(BuildContext context) {
@@ -35,8 +35,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       bottom: tabBar,
       backgroundColor: ColorsPalette.black2,
       elevation: 0,
-      title: Padding(
-        padding: const EdgeInsets.only(left: Spacing.x1),
+      title: Align(
+        alignment: Alignment.centerLeft,
         child: Text(title, style: TextStyles.header),
       ),
     );

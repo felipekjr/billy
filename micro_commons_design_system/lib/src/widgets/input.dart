@@ -30,7 +30,7 @@ class Input extends StatelessWidget {
         labelText: label,
         hintText: hint,
         hintStyle: TextStyles.normalThin(),
-        labelStyle: TextStyles.medium(),
+        labelStyle: TextStyles.normalBold(),
         errorText: error ? errorText : null,
         errorStyle: TextStyles.smallThin(color: ColorsPalette.red),
         enabledBorder: OutlineInputBorder(

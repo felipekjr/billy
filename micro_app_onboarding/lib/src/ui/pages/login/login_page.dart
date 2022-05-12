@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:micro_app_onboarding/src/presentation/helpers/helpers.dart';
 import 'package:micro_app_onboarding/src/ui/helpers/show_error_dialog_helper.dart';
 import 'package:micro_commons_design_system/micro_commons_design_system.dart';
 
@@ -114,9 +115,15 @@ class _LoginPageState extends State<LoginPage> {
     onTap: () {},
   );
 
-  Widget button() =>  PrimaryButton(
-    title: 'Login',
-    onTap: widget.presenter.authenticate
+  Widget button() =>  ValueListenableBuilder(
+    valueListenable: widget.presenter.stateNotifier,
+    builder: (context, state, _) {
+      return PrimaryButton(
+        title: 'Login',
+        onTap: widget.presenter.authenticate,
+        loading: state is UILoadingState,
+      );
+    }
   );
 
   Widget formSpacing() => const SizedBox(

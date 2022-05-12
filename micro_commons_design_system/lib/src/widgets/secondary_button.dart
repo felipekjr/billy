@@ -30,7 +30,7 @@ class SecondaryButton extends StatelessWidget {
         child: Container(
           alignment: Alignment.center,
           child: Padding(
-            padding: const EdgeInsets.all(Spacing.x2Half),
+            padding: const EdgeInsets.all(Spacing.x2),
             child: Text(title, style: TextStyles.buttonText()),
           ),
         ),
