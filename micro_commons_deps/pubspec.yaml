@@ -19,6 +19,7 @@ dependencies:
   firebase_core: ^1.16.0
   firebase_auth: ^3.3.17
   faker: ^2.0.0
+  mocktail: ^0.3.0
 
 dev_dependencies:
   flutter_test:
