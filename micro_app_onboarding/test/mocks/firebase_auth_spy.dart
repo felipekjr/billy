@@ -2,16 +2,29 @@ import 'package:micro_commons_deps/micro_commons_deps.dart';
 import 'package:micro_commons_deps/micro_commons_test_deps.dart';
 
 class FirebaseAuthSpy extends Mock implements FirebaseAuth {
-  When mockCall() => when(() => createUserWithEmailAndPassword(
+  When whenRegisterCall() => when(() => createUserWithEmailAndPassword(
       email: any(named: 'email'), 
       password: any(named: 'password')
   ));
 
-  void mockcreateUserWithEmailAndPassword(UserCredential value) {
-    mockCall().thenAnswer((_) => Future.value(value));
+  When whenSignInCall() => when(() => signInWithEmailAndPassword(
+      email: any(named: 'email'), 
+      password: any(named: 'password')
+  ));
+
+  void mockRegister(UserCredential value) {
+    whenRegisterCall().thenAnswer((_) => Future.value(value));
   }
 
-  void mockError(Exception ex) {
-    mockCall().thenThrow(ex);
+  void mockRegisterError(Exception ex) {
+    whenRegisterCall().thenThrow(ex);
+  }
+
+  void mockSignin(UserCredential value) {
+    whenSignInCall().thenAnswer((_) => Future.value(value));
+  }
+
+  void mockSignInError(Exception ex) {
+    whenSignInCall().thenThrow(ex);
   }
 }

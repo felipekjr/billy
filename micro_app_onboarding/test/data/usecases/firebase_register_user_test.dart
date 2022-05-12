@@ -6,8 +6,7 @@ import 'package:micro_commons_deps/micro_commons_deps.dart';
 import 'package:micro_commons_deps/micro_commons_test_deps.dart';
 
 import '../../mocks/mocks.dart';
-
-class UserCredentialsMock extends Mock implements UserCredential {}
+import '../../mocks/user_credentials_mock.dart';
 
 void main() {
   late FirebaseRegisterUser sut;
@@ -19,7 +18,7 @@ void main() {
       firebaseAuth: firebaseAuthSpy
     );
 
-    firebaseAuthSpy.mockcreateUserWithEmailAndPassword(UserCredentialsMock());
+    firebaseAuthSpy.mockRegister(UserCredentialsMock());
   });
 
   UserEntity makeFakeUser() => UserEntity(
@@ -41,17 +40,17 @@ void main() {
   });
 
   test('Should throw UnexpectedError if method fails', () async {
-    firebaseAuthSpy.mockError(Exception());
+    firebaseAuthSpy.mockRegisterError(Exception());
     expect(() => sut.call(makeFakeUser()), throwsA(DomainErrors.unexpected));
   });
 
   test('Should throw InvalidEmail if firebaseAuth throws exception with invalid-email code', () async {
-    firebaseAuthSpy.mockError(FirebaseAuthException(code: 'invalid-email'));
+    firebaseAuthSpy.mockRegisterError(FirebaseAuthException(code: 'invalid-email'));
     expect(() => sut.call(makeFakeUser()), throwsA(DomainErrors.invalidEmail));
   });
 
   test('Should throw WeakPassword if firebaseAuth throws exception with weak-password code', () async {
-    firebaseAuthSpy.mockError(FirebaseAuthException(code: 'weak-password'));
+    firebaseAuthSpy.mockRegisterError(FirebaseAuthException(code: 'weak-password'));
     expect(() => sut.call(makeFakeUser()), throwsA(DomainErrors.weakPassword));
   });
 }
