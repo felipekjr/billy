@@ -41,7 +41,7 @@ class ValueNotifierLoginPresenter implements LoginPresenter {
   }
 
   @override
-  void authenticate() async {
+  Future<void> authenticate() async {
     try {
       buttonClickedNotifier.value = true;
       if (!(passwordErrorNotifier.value && emailErrorNotifier.value)) {
