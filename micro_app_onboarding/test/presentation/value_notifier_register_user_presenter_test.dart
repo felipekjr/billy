@@ -109,6 +109,38 @@ void main() {
     expect(states[1], const UIErrorState('Erro inesperado ao cadastrar usuário'));
   });
 
+  test('Should set user name on validateField', () async {
+    final fakeName =  faker.person.name();
+    sut.validateField(UserFields.name, fakeName);
+
+    expect(sut.user.name, fakeName);
+    expect(sut.fieldErrorsMapNotifier.value[UserFields.name], sut.user.name.isEmpty);
+  });
+
+  test('Should set user email on validateField', () async {
+    final fakeEmail =  faker.person.name() + '@fakemail.com';
+    sut.validateField(UserFields.email, fakeEmail);
+
+    expect(sut.user.email, fakeEmail);
+    expect(sut.fieldErrorsMapNotifier.value[UserFields.email], sut.user.email.isEmpty);
+  });
+
+  test('Should set user phone on validateField', () async {
+    final fakeNumber =  faker.phoneNumber.us();
+    sut.validateField(UserFields.phoneNumber, fakeNumber);
+
+    expect(sut.user.phoneNumber, fakeNumber);
+    expect(sut.fieldErrorsMapNotifier.value[UserFields.phoneNumber], sut.user.phoneNumber.isEmpty);
+  });
+
+  test('Should set user password on validateField', () async {
+    final fakePassword =  faker.lorem.word();
+    sut.validateField(UserFields.password, fakePassword);
+
+    expect(sut.user.password, fakePassword);
+    expect(sut.fieldErrorsMapNotifier.value[UserFields.password], sut.user.password.isEmpty);
+  });
+
   test('Should dispose notifiers on dispose method', () async {
     sut.init();
     sut.dispose();

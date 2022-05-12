@@ -14,7 +14,8 @@ runTests() {
             --remove coverage/lcov.info \
             --output-file coverage/coverage.info \
             "lib/src/*_resolver.dart" \
-            "lib/src/core/factories/*"
+            "lib/src/core/factories/*" \
+            "lib/src/domain/entities/*"
         genhtml coverage/coverage.info -o coverage/html
         cd -
     else echo "No test found"
