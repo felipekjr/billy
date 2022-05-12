@@ -44,13 +44,13 @@ class ValueNotifierRegisterUserPresenter implements RegisterUserPresenter {
   }
   
   @override
-  void register() async {
+  Future<void> register() async {
     try {
       buttonClickedNotifier.value = true;
       if (isFormValid) {
         stateNotifier.value = const UILoadingState();
         await Future.delayed(const Duration(seconds: 1));
-        await registerUser(userNotifier.value);
+        await registerUser(user);
         stateNotifier.value = const UISuccessState('Usuário cadastrado com sucesso');
       }
     } catch (e) {
