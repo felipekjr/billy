@@ -7,29 +7,14 @@
   <br>
 </div>
 
-## Summary
- - [Run](#run)
- - [Stack](#stack)
- - [Architecture](#architecture)
- - [To-do](#to-do)
+---
 
-## Preview
 ![image](https://user-images.githubusercontent.com/20143893/163483641-fe36a333-61d1-41da-a166-4edd94e2720f.png)
 
-## Run
-execute the command ```sh flutter run``` on root folder to run the app
-## Stack
-- Dart + Flutter
-- Riverpod / ValueNotifier
-- Flutter Hooks
-- Dio / Firebase
-- Secure Storage
-- Google Calendar API
+---
 
-## Architecture
-  - [MicroFrontends Approach](https://github.com/DeividWillyan/Micro-FrontEnds)
-  - [Clean Arc inside packages](https://medium.flutterdevs.com/explore-clean-architecture-in-flutter-3fff83e0f1f2)
-![](prints/CleanArchitecture.jpeg)
+## Run
+execute the command ```sh flutter run``` on root folder to run the
 
 ## TO-DO:
 - [ ] Onboarding
@@ -39,3 +24,14 @@ execute the command ```sh flutter run``` on root folder to run the app
 - [ ] Status page
 - [ ] Unit & Widget tests
 - [ ] Golden Tests
+
+## Architecture and Stack
+Check out the [architecture](https://github.com/felipekjr/billy/blob/main/ARCHITECTURE.md) page to see the explanation of how this app is organized.
+
+# :bug: Issues
+
+Feel free to **file a new issue** with a respective title and description. If you already found a solution to your problem, **I would love to review your pull request**!
+
+# :tada: Contributing
+
+Check out the [contributing](https://github.com/felipekjr/billy/blob/main/CONTRIBUTING.md) page to see the best places to file issues, start discussions and begin contributing.
